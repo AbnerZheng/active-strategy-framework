@@ -212,7 +212,7 @@ def get_pool_data_flipside(contract_address, flipside_query, file_name, DOWNLOAD
     """
 
     # Download  events
-    swap_data = get_swap_data(contract_address, file_name, DOWNLOAD_DATA)
+    swap_data = get_swap_data(contract_address, file_name, DOWNLOAD_DATA=False)
     swap_data['time_pd'] = pd.to_datetime(swap_data['timestamp'], unit='s', origin='unix', utc=True)
     swap_data = swap_data.set_index('time_pd')
     swap_data['tick_swap'] = swap_data['tick']
